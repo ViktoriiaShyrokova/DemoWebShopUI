@@ -39,7 +39,7 @@ public class LoginTests extends TestBase {
                 .setPassword("Password1!"));
         clickOnLoginInButton();
         Assert.assertFalse(isLogoutLinkPresent());
-        Assert.assertTrue(isErrorCredentialsAreIncorectPresent());
+        Assert.assertTrue(isErrorCredentialsAreIncorrectPresent());
     }
 
 }

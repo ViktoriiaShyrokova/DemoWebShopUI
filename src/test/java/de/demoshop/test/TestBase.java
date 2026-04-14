@@ -1,5 +1,6 @@
 package de.demoshop.test;
 
+import de.demoshop.test.entity.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -131,7 +132,7 @@ public class TestBase {
                 "\nNo customer account found");
     }
 
-    public boolean isErrorCredentialsAreIncorectPresent() {
+    public boolean isErrorCredentialsAreIncorrectPresent() {
         return verifyByText(By.className("validation-summary-errors"), "Login was unsuccessful. Please correct the errors and try again." +
                 "\nThe credentials provided are incorrect");
     }
@@ -140,12 +141,39 @@ public class TestBase {
         click(By.cssSelector("#topcartlink a"));
     }
 
-    public void clickOnAddToCart() {
-        click(By.cssSelector("[data-productid='31'] input[value='Add to cart']"));
+    public void clickOnAddToCart(Product<?> product) {
+        click(By.cssSelector(
+                String.format("[data-productid='%s'] input[value='Add to cart']",
+                        product.getDataProductid())
+        ));
     }
 
-    public boolean isItemPresentInTheCart() {
+    public void clickOnAddToCartComputerWithoutDetailsIsInStock() {
+        click(By.cssSelector("[data-productid='31'] input[value='Add to cart']"));
+    }
+    public void clickOnAddToCartComputerWithRequiredDetailsIsInStock() {
+        click(By.cssSelector("[data-productid='75'] input[value='Add to cart']"));
+    }
+    public void clickOnAddToCartComputerWithOptionalDetailsIsInStock() {
+        click(By.cssSelector("[data-productid='74'] input[value='Add to cart']"));
+    }
+    public void clickOnAddToCartBagOutOfStock() {
+        click(By.cssSelector("[data-productid='29'] input[value='Add to cart']"));
+    }
+
+    public boolean isItemWithoutDetailsPresentInTheCart() {
         return isElementPresent(By.xpath("//td/a[.='14.1-inch Laptop']"));
+    }
+    public boolean isRequiredItemDetailsPresentInTheCart() {
+        return isElementPresent(By.xpath("""
+                //tr//div[contains(@class,'attributes')
+                        and contains(., 'Processor: Slow')
+                        and contains(., 'RAM: 2 GB')
+                        and contains(., 'HDD: 320 GB')]"""));
+    }
+
+    public boolean isOptionalItemDetailsPresentInTheCart() {
+        return isElementPresent(By.xpath("//tr[.//div[contains(@class,'attributes') and contains(., 'Processor: Fast [+100.00]') and contains(., 'RAM: 8GB [+60.00]') and contains(., 'HDD: 400 GB [+100.00]') and contains(., 'Software: Office Suite [+100.00]')]]"));
     }
 
     public boolean isSuccessMessageShown() {
@@ -183,6 +211,14 @@ public class TestBase {
 
     public void clickOnProduct() {
         click(By.cssSelector("[data-productid='31'] a"));
+    }
+
+    public boolean isOutOfStockMessagePresent() {
+        return isElementPresent(By.xpath("//p[.='Out of stock']"));
+    }
+
+    public void clickOnApparelShoesInTopMenu() {
+        click(By.cssSelector(".top-menu a[href='/apparel-shoes']"));
     }
 }
 //jack@sparrow.com
