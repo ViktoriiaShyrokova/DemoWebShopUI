@@ -3,11 +3,13 @@ package de.demoshop.fw;
 import de.demoshop.core.BaseHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePageHelper extends BaseHelper {
 
-    public HomePageHelper(WebDriver driver) {
-        super(driver);
+
+    public HomePageHelper(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
     }
 
     public boolean isHomePageMainBlockPresent() {

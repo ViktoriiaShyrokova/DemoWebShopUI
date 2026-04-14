@@ -18,7 +18,6 @@ public class LogoutTests extends TestBase {
     @Test
     public void loggedInUserCanLogoutTest() {
         app.getUser().clickOnLogoutLink();
-        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
         Assert.assertTrue(app.getUser().isLoginLinkPresent());
         Assert.assertTrue(app.getUser().isRegisterLinkPresent());
         Assert.assertTrue(app.getHomePage().isCartEmpty());

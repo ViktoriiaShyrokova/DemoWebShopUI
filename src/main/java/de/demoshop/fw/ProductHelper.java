@@ -5,11 +5,13 @@ import de.demoshop.model.Desktop;
 import de.demoshop.model.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductHelper extends BaseHelper {
 
-    public ProductHelper(WebDriver driver) {
-        super(driver);
+
+    public ProductHelper(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
     }
 
     public void clickOnAddToCart(Product<?> product) {
@@ -17,6 +19,14 @@ public class ProductHelper extends BaseHelper {
                 String.format("[data-productid='%s'] input[value='Add to cart']",
                         product.getDataProductid())
         ));
+    }
+
+    public boolean isProductAddedToTheCartMessagePresent() {
+        return isElementPresent(By.xpath("//p[contains(.,'The product has been added to your')]"));
+    }
+
+    public void waitBeforeSuccessMessageDisappear(){
+        waitForNotificationToDisappear(By.id("bar-notification"));
     }
 
     public boolean isItemPresentInTheCart(Product<?> product) {
@@ -47,7 +57,7 @@ public class ProductHelper extends BaseHelper {
     }
 
     public int sizeOfCartList() {
-        return driver.findElements(By.className("cart-item-row")).size();
+        return sizeOfList(By.className("cart-item-row"));
     }
 
     public boolean isProductShownInRecentlyViewedBlock(Product<?> product) {

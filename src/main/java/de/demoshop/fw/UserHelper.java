@@ -4,11 +4,13 @@ import de.demoshop.core.BaseHelper;
 import de.demoshop.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserHelper extends BaseHelper {
 
-    public UserHelper(WebDriver driver) {
-        super(driver);
+
+    public UserHelper(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
     }
 
     public boolean verifyUserEmailInHeader(String email) {
@@ -17,6 +19,10 @@ public class UserHelper extends BaseHelper {
 
     public boolean isLogoutLinkPresent() {
         return isElementPresent(By.cssSelector("[href='/logout']"));
+    }
+
+    public boolean isLogoutLinkNotPresent() {
+        return isElementNotPresent(By.cssSelector("[href='/logout']"));
     }
 
     public void clickOnRegisterButton() {
@@ -53,6 +59,10 @@ public class UserHelper extends BaseHelper {
 
     public boolean isEmailAlreadyExists() {
         return verifyByText(By.className("validation-summary-errors"), "The specified email already exists");
+    }
+
+    public boolean isValidationPresent() {
+        return wait.until(driver -> isElementPresent(By.className("validation-summary-errors")));
     }
 
     public void clickOnLoginInButton() {

@@ -46,7 +46,7 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickOnRegisterButton();
         Assert.assertTrue(app.getUser().isValidationPresent());
         Assert.assertTrue(app.getUser().isEmailAlreadyExists());
-        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().isLogoutLinkNotPresent());
     }
 
 

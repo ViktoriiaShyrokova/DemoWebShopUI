@@ -1,6 +1,7 @@
 package de.demoshop.test;
 
 import de.demoshop.core.TestBase;
+import de.demoshop.model.Desktop;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,8 +16,10 @@ public class RemoveProductFromCartTests extends TestBase {
 
         app.getUser().fillInLoginForm(user);
         app.getUser().clickOnLoginInButton();
-
-        //clickOnAddToCartComputerWithoutDetailsIsInStock();
+        Desktop desktop = new Desktop()
+                .setDataProductid(31);
+        app.getProduct().clickOnAddToCart(desktop);
+        app.getProduct().waitBeforeSuccessMessageDisappear();
     }
 
     @Test

@@ -5,23 +5,26 @@ import de.demoshop.fw.ProductHelper;
 import de.demoshop.fw.UserHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class ApplicationManager{
     WebDriver driver;
+    WebDriverWait wait;
     ProductHelper product;
     UserHelper user;
     HomePageHelper homePage;
 
     public void init() {
         driver = new ChromeDriver();
+        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         driver.get("https://demowebshop.tricentis.com/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        product = new ProductHelper(driver);
-        user = new UserHelper(driver);
-        homePage = new HomePageHelper(driver);
+
+        product = new ProductHelper(driver,wait);
+        user = new UserHelper(driver,wait);
+        homePage = new HomePageHelper(driver,wait);
     }
 
     public ProductHelper getProduct() {

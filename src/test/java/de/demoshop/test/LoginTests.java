@@ -28,7 +28,7 @@ public class LoginTests extends TestBase {
                 .setEmail("jack@fake.com")
                 .setPassword("Password1!"));
         app.getUser().clickOnLoginInButton();
-        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().isLogoutLinkNotPresent());
         Assert.assertTrue(app.getUser().isErrorNoCustomerFoundPresent());
     }
 
@@ -39,7 +39,7 @@ public class LoginTests extends TestBase {
                 .setEmail("jack@sparrow.com")
                 .setPassword("WrongPassword1!"));
         app.getUser().clickOnLoginInButton();
-        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().isLogoutLinkNotPresent());
         Assert.assertTrue(app.getUser().isErrorCredentialsAreIncorrectPresent());
     }
 

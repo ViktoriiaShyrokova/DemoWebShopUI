@@ -25,8 +25,9 @@ public class ItemTests extends TestBase {
                 .setDataProductid(31)
                 .setTitle("14.1-inch Laptop");
         app.getProduct().clickOnAddToCart(desktop);
+        Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
+        app.getProduct().waitBeforeSuccessMessageDisappear();
         app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
-        //Assert.assertTrue(isSuccessMessageShown());
         Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
     }
 
@@ -38,6 +39,8 @@ public class ItemTests extends TestBase {
                 .setDataProductid(31)
                 .setTitle("14.1-inch Laptop");
         app.getProduct().clickOnAddToCart(desktop);
+        Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
+        app.getProduct().waitBeforeSuccessMessageDisappear();
         app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
         Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
     }
@@ -82,12 +85,12 @@ public class ItemTests extends TestBase {
                 .setHdd("HDD: 320 GB")
                 .setValueAttributes(List.of("product_attribute_75_5_31_96"));
         app.getProduct().clickOnAddToCart(desktop);
-        app.getHomePage().pause(2000);
         app.getProduct().clickOnProductAttributes(desktop);
-        app.getHomePage().pause(2000);
         app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);
-        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
 
+        Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
+        app.getProduct().waitBeforeSuccessMessageDisappear();
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
         Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
         Assert.assertTrue(app.getProduct().isItemDetailsPresentInTheCart(desktop));
     }
@@ -104,12 +107,11 @@ public class ItemTests extends TestBase {
                 .setSoftware("Software: Office Suite [+100.00]")
                 .setValueAttributes(List.of("product_attribute_74_5_26_82", "product_attribute_74_6_27_85", "product_attribute_74_3_28_87", "product_attribute_74_8_29_89"));
         app.getProduct().clickOnAddToCart(desktop);
-        app.getHomePage().pause(2000);
         app.getProduct().clickOnProductAttributes(desktop);
-        app.getHomePage().pause(2000);
         app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);
+        Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
+        app.getProduct().waitBeforeSuccessMessageDisappear();
         app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
-
         Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
         Assert.assertTrue(app.getProduct().isItemDetailsPresentInTheCart(desktop));
     }
@@ -118,7 +120,10 @@ public class ItemTests extends TestBase {
 
     @AfterMethod(enabled = true)
     public void postconditions() {
-        if(!app.getHomePage().isWishListEmpty()) app.getProduct().removeProductFromCart();
+        if(!app.getHomePage().isCartEmpty()) {
+            app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
+            app.getProduct().removeProductFromCart();
+        }
     }
 
 }
