@@ -8,6 +8,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ItemTests extends TestBase {
     @BeforeMethod
     public void preconditions() {
@@ -20,32 +23,36 @@ public class ItemTests extends TestBase {
 
     @Test
     public void loggedInUserAddsItemToCartTest() {
-
-//clickOnAddToCartComputerWithoutDetailsIsInStock();
-        clickOnAddToCart(new Desktop()
-                .setDataProductid(31));
+        Desktop desktop = new Desktop()
+                .setDataProductid(31)
+                .setTitle("14.1-inch Laptop");
+        clickOnAddToCart(desktop);
         clickOnShoppingCartLinkAtTheHeader();
         //pause(500);
         //Assert.assertTrue(isSuccessMessageShown());
-        Assert.assertTrue(isItemWithoutDetailsPresentInTheCart());
+        Assert.assertTrue(isItemPresentInTheCart(desktop));
     }
 
     @Test
     public void notLoggedInUserAddsItemToCartTest() {
         clickOnLogoutLink();
 
-        clickOnAddToCart(new Desktop()
-                .setDataProductid(31));
+        Desktop desktop = new Desktop()
+                .setDataProductid(31)
+                .setTitle("14.1-inch Laptop");
+        clickOnAddToCart(desktop);
         clickOnShoppingCartLinkAtTheHeader();
-        //Assert.assertTrue(isSuccessMessageShown());
-        Assert.assertTrue(isItemWithoutDetailsPresentInTheCart());
+        Assert.assertTrue(isItemPresentInTheCart(desktop));
     }
 
     @Test
     public void itemAddedToTheCartIsInTheCartAfterLoginTest() {
         clickOnLogoutLink();
-        clickOnAddToCart(new Desktop()
-                .setDataProductid(31));
+
+        Desktop desktop = new Desktop()
+                .setDataProductid(31)
+                .setTitle("14.1-inch Laptop");
+        clickOnAddToCart(desktop);
 
         clickOnLoginLink();
         fillInLoginForm(new User()
@@ -54,48 +61,63 @@ public class ItemTests extends TestBase {
         clickOnLoginInButton();
 
         clickOnShoppingCartLinkAtTheHeader();
-        Assert.assertTrue(isItemWithoutDetailsPresentInTheCart());
+        Assert.assertTrue(isItemPresentInTheCart(desktop));
     }
 
     @Test
     public void addToCartOutOfStockProductTest() {
         clickOnApparelShoesInTopMenu();
-        clickOnAddToCartBagOutOfStock();
+        Desktop desktop = new Desktop()
+                .setDataProductid(29);
+        clickOnAddToCart(desktop);
+
         Assert.assertTrue(isOutOfStockMessagePresent());
         Assert.assertTrue(isCartEmpty());
     }
 
     @Test
     public void addToCartProductWithRequiredDetailsTest() {
-        clickOnAddToCartComputerWithRequiredDetailsIsInStock();
-        clickOnProcessorRequiredField();
-        clickOnAddToCartComputerWithRequiredFieldButton();
+        Desktop desktop = new Desktop()
+                .setDataProductid(75)
+                .setTitle("Simple Computer")
+                .setProcessor("Processor: Slow")
+                .setRam("RAM: 2 GB")
+                .setHdd("HDD: 320 GB")
+                .setValueAttributes(List.of("product_attribute_75_5_31_96"));
+        clickOnAddToCart(desktop);
+        clickOnProductAttributes(desktop);
+        clickOnAddToCartButtonOnProductDetailsPage(desktop);
         clickOnShoppingCartLinkAtTheHeader();
 
-        Assert.assertTrue(isRequiredItemDetailsPresentInTheCart());
-        //Assert.assertTrue();
+        Assert.assertTrue(isItemPresentInTheCart(desktop));
+        Assert.assertTrue(isItemDetailsPresentInTheCart(desktop));
     }
 
-    public void clickOnAddToCartComputerWithRequiredFieldButton() {
-        click(By.id("add-to-cart-button-75"));
-    }
-
-    public void clickOnProcessorRequiredField() {
-        click(By.id("product_attribute_75_5_31_96"));
+    public void clickOnAddToCartButtonOnProductDetailsPage(Product<?> product) {
+        click(By.id(String.format("add-to-cart-button-%d", product.getDataProductid())));
     }
 
     @Test
     public void addToCartProductWithOptionalDetailsTest() {
-        clickOnAddToCartComputerWithOptionalDetailsIsInStock();
-        click(By.id("product_attribute_74_5_26_82"));
-        click(By.id("product_attribute_74_6_27_85"));
-        click(By.id("product_attribute_74_3_28_87"));
-        click(By.id("product_attribute_74_8_29_89"));
+        Desktop desktop = new Desktop()
+                .setDataProductid(74)
+                .setTitle("Build your own expensive computer")
+                .setProcessor("Processor: Fast [+100.00]")
+                .setRam("RAM: 8GB [+60.00]")
+                .setHdd("HDD: 400 GB [+100.00]")
+                .setSoftware("Software: Office Suite [+100.00]")
+                .setValueAttributes(List.of("product_attribute_74_5_26_82", "product_attribute_74_6_27_85", "product_attribute_74_3_28_87", "product_attribute_74_8_29_89"));
+        clickOnAddToCart(desktop);
+        clickOnProductAttributes(desktop);
         click(By.id("add-to-cart-button-74"));
         clickOnShoppingCartLinkAtTheHeader();
 
-        Assert.assertTrue(isRequiredItemDetailsPresentInTheCart());
-        Assert.assertTrue(isElementPresent(By.xpath("//tr[.//div[contains(@class,'attributes') and contains(., 'Processor: Fast [+100.00]') and contains(., 'RAM: 8GB [+60.00]') and contains(., 'HDD: 400 GB [+100.00]') and contains(., 'Software: Office Suite [+100.00]')]]")));
+        Assert.assertTrue(isItemPresentInTheCart(desktop));
+        Assert.assertTrue(isItemDetailsPresentInTheCart(desktop));
+    }
+
+    public void clickOnProductAttributes(Desktop desktop) {
+        desktop.getValueAttributes().forEach(a -> click(By.id(a)));
     }
 
     @AfterMethod(enabled = false)

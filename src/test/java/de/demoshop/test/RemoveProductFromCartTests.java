@@ -15,7 +15,7 @@ public class RemoveProductFromCartTests extends TestBase {
         fillInLoginForm(user);
         clickOnLoginInButton();
 
-        clickOnAddToCartComputerWithoutDetailsIsInStock();
+        //clickOnAddToCartComputerWithoutDetailsIsInStock();
     }
 
     @Test

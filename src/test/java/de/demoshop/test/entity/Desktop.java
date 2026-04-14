@@ -1,5 +1,7 @@
 package de.demoshop.test.entity;
 
+import java.util.List;
+
 public class Desktop extends Product<Desktop>{
 
 
@@ -7,6 +9,16 @@ public class Desktop extends Product<Desktop>{
     public String ram;
     public String hdd;
     public String software;
+    public List<String> valueAttributes;
+
+    public List<String> getValueAttributes() {
+        return valueAttributes;
+    }
+
+    public Desktop setValueAttributes(List<String> valueAttributes) {
+        this.valueAttributes = valueAttributes;
+        return this;
+    }
 
     public String getProcessor() {
         return processor;
