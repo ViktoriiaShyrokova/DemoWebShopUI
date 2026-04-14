@@ -1,4 +1,4 @@
-package de.demoshop.test.entity;
+package de.demoshop.model;
 
 public abstract class Product<T extends Product<T>> {
 

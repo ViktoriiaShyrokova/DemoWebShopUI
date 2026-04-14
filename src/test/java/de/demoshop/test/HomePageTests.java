@@ -1,7 +1,7 @@
 package de.demoshop.test;
 
 
-import org.openqa.selenium.By;
+import de.demoshop.core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +9,9 @@ public class HomePageTests extends TestBase {
 
     @Test
     public void isHomePageShownTest(){
-        Assert.assertTrue(isElementPresent(By.className("topic-html-content-header")));
+        Assert.assertTrue(app.getHomePage().isHomePageMainBlockPresent());
     }
+
+
 
 }

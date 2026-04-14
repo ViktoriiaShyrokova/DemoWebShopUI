@@ -1,5 +1,6 @@
 package de.demoshop.test;
 
+import de.demoshop.core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -7,39 +8,39 @@ public class LoginTests extends TestBase {
 
     @Test
     public void existedUserLoginPositiveTest(){
-        clickOnLoginLink();
-        User user = new User()
+        app.getUser().clickOnLoginLink();
+        de.demoshop.model.User user = new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
                 .setPassword("Password1!");
 
-        fillInLoginForm(user);
-        clickOnLoginInButton();
+        app.getUser().fillInLoginForm(user);
+        app.getUser().clickOnLoginInButton();
 
-        Assert.assertTrue(isLogoutLinkPresent());
-        Assert.assertTrue(verifyUserEmailInHeader(user.getEmail()));
+        Assert.assertTrue(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().verifyUserEmailInHeader(user.getEmail()));
     }
 
 
     @Test
     public void userLoginWithNonExistedInDatabaseEmailNegativeTest(){
-        clickOnLoginLink();
-        fillInLoginForm(new User()
-                .setEmail("jack@sparrow.com")
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillInLoginForm(new de.demoshop.model.User()
+                .setEmail("jack@fake.com")
                 .setPassword("Password1!"));
-        clickOnLoginInButton();
-        Assert.assertFalse(isLogoutLinkPresent());
-        Assert.assertTrue(isErrorNoCustomerFoundPresent());
+        app.getUser().clickOnLoginInButton();
+        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().isErrorNoCustomerFoundPresent());
     }
 
     @Test
     public void userLoginWithWrongPasswordNegativeTest(){
-        clickOnLoginLink();
-        fillInLoginForm(new User()
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillInLoginForm(new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
-                .setPassword("Password1!"));
-        clickOnLoginInButton();
-        Assert.assertFalse(isLogoutLinkPresent());
-        Assert.assertTrue(isErrorCredentialsAreIncorrectPresent());
+                .setPassword("WrongPassword1!"));
+        app.getUser().clickOnLoginInButton();
+        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().isErrorCredentialsAreIncorrectPresent());
     }
 
 }

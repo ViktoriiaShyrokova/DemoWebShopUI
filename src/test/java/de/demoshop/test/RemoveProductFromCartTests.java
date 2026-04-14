@@ -1,5 +1,6 @@
 package de.demoshop.test;
 
+import de.demoshop.core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,24 +8,24 @@ import org.testng.annotations.Test;
 public class RemoveProductFromCartTests extends TestBase {
     @BeforeMethod
     public void preconditions() {
-        clickOnLoginLink();
-        User user = new User()
+        app.getUser().clickOnLoginLink();
+        de.demoshop.model.User user = new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
                 .setPassword("Password1!");
 
-        fillInLoginForm(user);
-        clickOnLoginInButton();
+        app.getUser().fillInLoginForm(user);
+        app.getUser().clickOnLoginInButton();
 
         //clickOnAddToCartComputerWithoutDetailsIsInStock();
     }
 
     @Test
     public void removeProductFromTheCartTest() {
-        clickOnShoppingCartLinkAtTheHeader();
-        int sizeBefore = sizeOfCartList();
-        removeProductFromCart();
-        pause(1000);
-        int sizeAfter = sizeOfCartList();
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
+        int sizeBefore = app.getProduct().sizeOfCartList();
+        app.getProduct().removeProductFromCart();
+        app.getProduct().pause(1000);
+        int sizeAfter = app.getProduct().sizeOfCartList();
         Assert.assertEquals(sizeAfter, sizeBefore - 1);
     }
 

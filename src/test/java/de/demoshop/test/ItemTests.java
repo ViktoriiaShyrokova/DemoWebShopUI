@@ -1,24 +1,22 @@
 package de.demoshop.test;
 
-import de.demoshop.test.entity.Desktop;
-import de.demoshop.test.entity.Product;
-import org.openqa.selenium.By;
+import de.demoshop.core.TestBase;
+import de.demoshop.model.Desktop;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ItemTests extends TestBase {
     @BeforeMethod
     public void preconditions() {
-        clickOnLoginLink();
-        fillInLoginForm(new User()
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillInLoginForm(new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
                 .setPassword("Password1!"));
-        clickOnLoginInButton();
+        app.getUser().clickOnLoginInButton();
     }
 
     @Test
@@ -26,53 +24,52 @@ public class ItemTests extends TestBase {
         Desktop desktop = new Desktop()
                 .setDataProductid(31)
                 .setTitle("14.1-inch Laptop");
-        clickOnAddToCart(desktop);
-        clickOnShoppingCartLinkAtTheHeader();
-        //pause(500);
+        app.getProduct().clickOnAddToCart(desktop);
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
         //Assert.assertTrue(isSuccessMessageShown());
-        Assert.assertTrue(isItemPresentInTheCart(desktop));
+        Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
     }
 
     @Test
     public void notLoggedInUserAddsItemToCartTest() {
-        clickOnLogoutLink();
+        app.getUser().clickOnLogoutLink();
 
         Desktop desktop = new Desktop()
                 .setDataProductid(31)
                 .setTitle("14.1-inch Laptop");
-        clickOnAddToCart(desktop);
-        clickOnShoppingCartLinkAtTheHeader();
-        Assert.assertTrue(isItemPresentInTheCart(desktop));
+        app.getProduct().clickOnAddToCart(desktop);
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
+        Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
     }
 
     @Test
     public void itemAddedToTheCartIsInTheCartAfterLoginTest() {
-        clickOnLogoutLink();
+        app.getUser().clickOnLogoutLink();
 
         Desktop desktop = new Desktop()
                 .setDataProductid(31)
                 .setTitle("14.1-inch Laptop");
-        clickOnAddToCart(desktop);
+        app.getProduct().clickOnAddToCart(desktop);
 
-        clickOnLoginLink();
-        fillInLoginForm(new User()
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillInLoginForm(new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
                 .setPassword("Password1!"));
-        clickOnLoginInButton();
+        app.getUser().clickOnLoginInButton();
 
-        clickOnShoppingCartLinkAtTheHeader();
-        Assert.assertTrue(isItemPresentInTheCart(desktop));
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
+        Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
     }
 
     @Test
     public void addToCartOutOfStockProductTest() {
-        clickOnApparelShoesInTopMenu();
+        app.getProduct().clickOnApparelShoesInTopMenu();
         Desktop desktop = new Desktop()
                 .setDataProductid(29);
-        clickOnAddToCart(desktop);
+        app.getProduct().clickOnAddToCart(desktop);
 
-        Assert.assertTrue(isOutOfStockMessagePresent());
-        Assert.assertTrue(isCartEmpty());
+        Assert.assertTrue(app.getProduct().isOutOfStockMessagePresent());
+        Assert.assertTrue(app.getHomePage().isCartEmpty());
     }
 
     @Test
@@ -84,18 +81,17 @@ public class ItemTests extends TestBase {
                 .setRam("RAM: 2 GB")
                 .setHdd("HDD: 320 GB")
                 .setValueAttributes(List.of("product_attribute_75_5_31_96"));
-        clickOnAddToCart(desktop);
-        clickOnProductAttributes(desktop);
-        clickOnAddToCartButtonOnProductDetailsPage(desktop);
-        clickOnShoppingCartLinkAtTheHeader();
+        app.getProduct().clickOnAddToCart(desktop);
+        app.getHomePage().pause(2000);
+        app.getProduct().clickOnProductAttributes(desktop);
+        app.getHomePage().pause(2000);
+        app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
 
-        Assert.assertTrue(isItemPresentInTheCart(desktop));
-        Assert.assertTrue(isItemDetailsPresentInTheCart(desktop));
+        Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
+        Assert.assertTrue(app.getProduct().isItemDetailsPresentInTheCart(desktop));
     }
 
-    public void clickOnAddToCartButtonOnProductDetailsPage(Product<?> product) {
-        click(By.id(String.format("add-to-cart-button-%d", product.getDataProductid())));
-    }
 
     @Test
     public void addToCartProductWithOptionalDetailsTest() {
@@ -107,22 +103,22 @@ public class ItemTests extends TestBase {
                 .setHdd("HDD: 400 GB [+100.00]")
                 .setSoftware("Software: Office Suite [+100.00]")
                 .setValueAttributes(List.of("product_attribute_74_5_26_82", "product_attribute_74_6_27_85", "product_attribute_74_3_28_87", "product_attribute_74_8_29_89"));
-        clickOnAddToCart(desktop);
-        clickOnProductAttributes(desktop);
-        click(By.id("add-to-cart-button-74"));
-        clickOnShoppingCartLinkAtTheHeader();
+        app.getProduct().clickOnAddToCart(desktop);
+        app.getHomePage().pause(2000);
+        app.getProduct().clickOnProductAttributes(desktop);
+        app.getHomePage().pause(2000);
+        app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
 
-        Assert.assertTrue(isItemPresentInTheCart(desktop));
-        Assert.assertTrue(isItemDetailsPresentInTheCart(desktop));
+        Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
+        Assert.assertTrue(app.getProduct().isItemDetailsPresentInTheCart(desktop));
     }
 
-    public void clickOnProductAttributes(Desktop desktop) {
-        desktop.getValueAttributes().forEach(a -> click(By.id(a)));
-    }
 
-    @AfterMethod(enabled = false)
+
+    @AfterMethod(enabled = true)
     public void postconditions() {
-        removeProductFromCart();
+        if(!app.getHomePage().isWishListEmpty()) app.getProduct().removeProductFromCart();
     }
 
 }

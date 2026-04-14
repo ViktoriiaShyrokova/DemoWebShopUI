@@ -1,4 +1,4 @@
-package de.demoshop.test;
+package de.demoshop.model;
 
 public class User {
     private String name;

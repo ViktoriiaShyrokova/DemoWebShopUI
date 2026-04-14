@@ -1,5 +1,6 @@
 package de.demoshop.test;
 
+import de.demoshop.core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,44 +9,44 @@ public class CreateAccountTests extends TestBase {
     @Test//(enabled = false)
     public void newUserRegisterPositiveTest() {
 
-        clickOnRegisterLink();
-        String email = fillRegisterFormWithGeneratedEmail(new User()
+        app.getUser().clickOnRegisterLink();
+        String email = app.getUser().fillRegisterFormWithGeneratedEmail(new de.demoshop.model.User()
                 .setName("Jack")
                 .setLastName("Sparrow")
                 .setPassword("Password1!"));
-        clickOnRegisterButton();
-        Assert.assertTrue(isLogoutLinkPresent());
-        Assert.assertTrue(verifyUserEmailInHeader(email));
+        app.getUser().clickOnRegisterButton();
+        Assert.assertTrue(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().verifyUserEmailInHeader(email));
 
     }
 
     @Test
     public void userCanClickOnRegisterButtonOnTheSignInPage() {
 
-        openRegisterPageFromSignInPage();
+        app.getUser().openRegisterPageFromSignInPage();
 
-        String email = fillRegisterFormWithGeneratedEmail(new User()
+        String email = app.getUser().fillRegisterFormWithGeneratedEmail(new de.demoshop.model.User()
                 .setName("Jack")
                 .setLastName("Sparrow")
                 .setPassword("Password1!"));
-        clickOnRegisterButton();
-        Assert.assertTrue(isLogoutLinkPresent());
-        Assert.assertTrue(verifyUserEmailInHeader(email));
+        app.getUser().clickOnRegisterButton();
+        Assert.assertTrue(app.getUser().isLogoutLinkPresent());
+        Assert.assertTrue(app.getUser().verifyUserEmailInHeader(email));
     }
 
 
     @Test
     public void existedUserRegisterNegativeTest() {
-        clickOnRegisterLink();
-        fillRegisterForm(new User()
+        app.getUser().clickOnRegisterLink();
+        app.getUser().fillRegisterForm(new de.demoshop.model.User()
                 .setName("Jack")
                 .setLastName("Sparrow")
                 .setEmail("jack@sparrow.com")
                 .setPassword("Password1!"));
-        clickOnRegisterButton();
-        Assert.assertTrue(isValidationPresent());
-        Assert.assertTrue(isEmailAlreadyExists());
-        Assert.assertFalse(isLogoutLinkPresent());
+        app.getUser().clickOnRegisterButton();
+        Assert.assertTrue(app.getUser().isValidationPresent());
+        Assert.assertTrue(app.getUser().isEmailAlreadyExists());
+        Assert.assertFalse(app.getUser().isLogoutLinkPresent());
     }
 
 
