@@ -6,31 +6,29 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class RemoveProductFromCartTests extends TestBase {
+import java.util.List;
+
+public class ChangeProductQtyInTheCartTest extends TestBase {
     @BeforeMethod
     public void preconditions() {
         if(!app.getUser().isLogoutLinkNotPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
-        de.demoshop.model.User user = new de.demoshop.model.User()
+        app.getUser().fillInLoginForm(new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
-                .setPassword("Password1!");
-
-        app.getUser().fillInLoginForm(user);
+                .setPassword("Password1!"));
         app.getUser().clickOnLoginInButton();
         Desktop desktop = new Desktop()
-                .setDataProductid(31);
+                .setDataProductid(31)
+                .setTitle("14.1-inch Laptop");
         app.getProduct().clickOnAddToCart(desktop);
         app.getProduct().waitBeforeSuccessMessageDisappear();
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
     }
 
     @Test
-    public void removeProductFromTheCartTest() {
-        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
-        int sizeBefore = app.getProduct().sizeOfCartList();
-        app.getProduct().removeProductFromCart();
-        app.getProduct().pause(1000);
-        int sizeAfter = app.getProduct().sizeOfCartList();
-        Assert.assertEquals(sizeAfter, sizeBefore - 1);
+    public void userCanChangeProductQtyInTheCartTest() {
+        app.getProduct().changeQtyInTheCart(5);
+        Assert.assertTrue(app.getProduct().isSubTotalCalculatedCorrect());
     }
 
 }

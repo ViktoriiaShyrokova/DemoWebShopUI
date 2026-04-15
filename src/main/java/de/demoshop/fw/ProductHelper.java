@@ -5,6 +5,7 @@ import de.demoshop.model.Desktop;
 import de.demoshop.model.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductHelper extends BaseHelper {
@@ -25,7 +26,7 @@ public class ProductHelper extends BaseHelper {
         return isElementPresent(By.xpath("//p[contains(.,'The product has been added to your')]"));
     }
 
-    public void waitBeforeSuccessMessageDisappear(){
+    public void waitBeforeSuccessMessageDisappear() {
         waitForNotificationToDisappear(By.id("bar-notification"));
     }
 
@@ -62,7 +63,7 @@ public class ProductHelper extends BaseHelper {
 
     public boolean isProductShownInRecentlyViewedBlock(Product<?> product) {
         return isElementPresent(By.xpath(String.format("//div[@class='listbox']//a[.='%s']",
-                        product.getTitle())
+                product.getTitle())
         ));
     }
 
@@ -71,7 +72,7 @@ public class ProductHelper extends BaseHelper {
     }
 
     public void clickOnProduct(Product<?> product) {
-        click(By.cssSelector(String.format("[data-productid='%d'] a",product.getDataProductid())));
+        click(By.cssSelector(String.format("[data-productid='%d'] a", product.getDataProductid())));
     }
 
     public void clickOnAddToCartButtonOnProductDetailsPage(Product<?> product) {
@@ -88,5 +89,27 @@ public class ProductHelper extends BaseHelper {
 
     public void clickOnApparelShoesInTopMenu() {
         click(By.cssSelector(".top-menu a[href='/apparel-shoes']"));
+    }
+
+    public void fillQty(Product<?> product, Integer qty) {
+        type(By.id(String.format("addtocart_%d_EnteredQuantity", product.getDataProductid())), qty.toString());
+    }
+
+    public boolean isQtyPresentInTheCart(Integer qty) {
+        return isElementPresent(By.cssSelector(String.format("input[value='%d']", qty)));
+    }
+
+    public void changeQtyInTheCart(Integer qty) {
+        typeAndSubmit(By.className("qty-input"), qty.toString());
+    }
+
+    public boolean isSubTotalCalculatedCorrect() {
+        WebElement priceElement = driver.findElement(By.className("product-unit-price"));
+        Double price = Double.parseDouble(priceElement.getText().trim());
+        WebElement qtyElement = driver.findElement(By.className("qty-input"));
+        Double qty = Double.parseDouble(qtyElement.getAttribute("value"));
+        WebElement subTotalElement = driver.findElement(By.className("product-subtotal"));
+        Double subTotal = Double.parseDouble(subTotalElement.getAttribute("textContent").trim());
+        return subTotal == price * qty;
     }
 }

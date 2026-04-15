@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class CreateAccountTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition(){
-        if(app.getUser().isLogoutLinkPresent()) app.getUser().clickOnLogoutLink();
+        if(!app.getUser().isLogoutLinkNotPresent()) app.getUser().clickOnLogoutLink();
     }
 
     @Test//(enabled = false)

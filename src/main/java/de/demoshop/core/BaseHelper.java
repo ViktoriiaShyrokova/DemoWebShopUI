@@ -2,6 +2,7 @@ package de.demoshop.core;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,6 +31,13 @@ public class BaseHelper {
         driver.findElement(locator).click();
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
+    }
+    public void typeAndSubmit(By locator, String text) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        driver.findElement(locator).click();
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+        driver.findElement(locator).sendKeys(Keys.ENTER);
     }
 
     public void click(By locator) {

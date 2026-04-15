@@ -13,7 +13,7 @@ public class ItemTests extends TestBase {
 
     @BeforeMethod
     public void preconditions() {
-        if(app.getUser().isLogoutLinkPresent()) app.getUser().clickOnLogoutLink();
+        if(!app.getUser().isLogoutLinkNotPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
         app.getUser().fillInLoginForm(new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")
@@ -31,6 +31,24 @@ public class ItemTests extends TestBase {
         app.getProduct().waitBeforeSuccessMessageDisappear();
         app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
         Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
+    }
+
+    @Test
+    public void loggedInUserAddsTwoEqualItemsToCartTest() {
+        Desktop desktop = new Desktop()
+                .setDataProductid(75)
+                .setTitle("Simple Computer")
+                .setValueAttributes(List.of("product_attribute_75_5_31_96"));
+        app.getProduct().clickOnAddToCart(desktop);
+        app.getProduct().clickOnProductAttributes(desktop);
+        app.getProduct().fillQty(desktop,2);
+        app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);
+
+        Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
+        app.getProduct().waitBeforeSuccessMessageDisappear();
+        app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
+        Assert.assertTrue(app.getProduct().isItemPresentInTheCart(desktop));
+        Assert.assertTrue(app.getProduct().isQtyPresentInTheCart(2));
     }
 
     @Test
