@@ -1,14 +1,18 @@
-package de.demoshop.test;
+package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase {
+    @BeforeMethod
+    public void ensurePrecondition(){
+        if(app.getUser().isLogoutLinkPresent()) app.getUser().clickOnLogoutLink();
+    }
 
     @Test//(enabled = false)
     public void newUserRegisterPositiveTest() {
-
         app.getUser().clickOnRegisterLink();
         String email = app.getUser().fillRegisterFormWithGeneratedEmail(new de.demoshop.model.User()
                 .setName("Jack")

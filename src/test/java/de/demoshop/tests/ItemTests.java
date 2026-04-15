@@ -1,4 +1,4 @@
-package de.demoshop.test;
+package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
 import de.demoshop.model.Desktop;
@@ -10,8 +10,10 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class ItemTests extends TestBase {
+
     @BeforeMethod
     public void preconditions() {
+        if(app.getUser().isLogoutLinkPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
         app.getUser().fillInLoginForm(new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")

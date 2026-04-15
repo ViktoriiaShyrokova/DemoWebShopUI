@@ -1,4 +1,4 @@
-package de.demoshop.test;
+package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
 import de.demoshop.model.Desktop;
@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 public class RemoveProductFromCartTests extends TestBase {
     @BeforeMethod
     public void preconditions() {
+        if(app.getUser().isLogoutLinkPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
         de.demoshop.model.User user = new de.demoshop.model.User()
                 .setEmail("jack@sparrow.com")

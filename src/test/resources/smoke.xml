@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke" verbose="1">
+    <test name="Test1">
+        <classes>
+            <class name="de.demoshop.tests.HomePageTests"/>
+            <class name="de.demoshop.tests.LoginTests">
+                <methods>
+                    <exclude name=".*Negative.*"></exclude>
+                </methods>
+            </class>
+            <class name="de.demoshop.tests.ItemTests"/>
+        </classes>
+    </test>
+</suite>

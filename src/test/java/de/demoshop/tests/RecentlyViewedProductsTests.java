@@ -1,4 +1,4 @@
-package de.demoshop.test;
+package de.demoshop.tests;
 
 
 import de.demoshop.core.TestBase;
