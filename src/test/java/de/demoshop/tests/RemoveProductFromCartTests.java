@@ -1,6 +1,8 @@
 package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
+import de.demoshop.data.ProductData;
+import de.demoshop.data.UserData;
 import de.demoshop.model.Desktop;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -12,13 +14,12 @@ public class RemoveProductFromCartTests extends TestBase {
         if(!app.getUser().isLogoutLinkNotPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
         de.demoshop.model.User user = new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("Password1!");
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
 
         app.getUser().fillInLoginForm(user);
         app.getUser().clickOnLoginInButton();
-        Desktop desktop = new Desktop()
-                .setDataProductid(31);
+        Desktop desktop = ProductData.computerWithoutDetails();
         app.getProduct().clickOnAddToCart(desktop);
         app.getProduct().waitBeforeSuccessMessageDisappear();
     }
@@ -28,7 +29,6 @@ public class RemoveProductFromCartTests extends TestBase {
         app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
         int sizeBefore = app.getProduct().sizeOfCartList();
         app.getProduct().removeProductFromCart();
-        app.getProduct().pause(1000);
         int sizeAfter = app.getProduct().sizeOfCartList();
         Assert.assertEquals(sizeAfter, sizeBefore - 1);
     }

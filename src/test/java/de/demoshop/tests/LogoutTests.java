@@ -1,6 +1,7 @@
 package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
+import de.demoshop.data.UserData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,8 +12,8 @@ public class LogoutTests extends TestBase {
         if(!app.getUser().isLogoutLinkNotPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
         app.getUser().fillInLoginForm(new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("Password1!"));
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginInButton();
     }
 

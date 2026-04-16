@@ -1,0 +1,16 @@
+name,lastName,email,password
+,a,a@a.s,aaaaaa
+a,,a@a.s,aaaaaa
+a,a,,aaaaaa
+a,a,a@a.s,
+a,a,a@a.s,aaaaa
+a,a,a,aaaaaa
+a,a,a@,aaaaaa
+a,a,a@a,aaaaaa
+a,a,a@a.,aaaaaa
+a,a,@a.s,aaaaaa
+ ,a,a@a.s,aaaaaa
+a, ,a@a.s,aaaaaa
+a,a, ,aaaaaa
+a,a,a@a.s,
+a,a,a a@a.s,aaaaaa

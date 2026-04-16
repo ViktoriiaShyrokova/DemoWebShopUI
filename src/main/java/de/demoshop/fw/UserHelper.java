@@ -64,6 +64,9 @@ public class UserHelper extends BaseHelper {
     public boolean isValidationPresent() {
         return wait.until(driver -> isElementPresent(By.className("validation-summary-errors")));
     }
+    public boolean isRegistrationValidationPresent() {
+        return wait.until(driver -> isElementPresent(By.className("field-validation-error")));
+    }
 
     public void clickOnLoginInButton() {
         click(By.cssSelector("[value='Log in']"));

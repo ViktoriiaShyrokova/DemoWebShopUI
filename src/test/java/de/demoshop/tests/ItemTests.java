@@ -1,6 +1,9 @@
 package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
+import de.demoshop.data.ProductData;
+import de.demoshop.data.UserData;
+import de.demoshop.model.Apparel;
 import de.demoshop.model.Desktop;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,16 +19,14 @@ public class ItemTests extends TestBase {
         if(!app.getUser().isLogoutLinkNotPresent()) app.getUser().clickOnLogoutLink();
         app.getUser().clickOnLoginLink();
         app.getUser().fillInLoginForm(new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("Password1!"));
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginInButton();
     }
 
     @Test
     public void loggedInUserAddsItemToCartTest() {
-        Desktop desktop = new Desktop()
-                .setDataProductid(31)
-                .setTitle("14.1-inch Laptop");
+        Desktop desktop = ProductData.computerWithoutDetails();
         app.getProduct().clickOnAddToCart(desktop);
         Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
         app.getProduct().waitBeforeSuccessMessageDisappear();
@@ -35,10 +36,7 @@ public class ItemTests extends TestBase {
 
     @Test
     public void loggedInUserAddsTwoEqualItemsToCartTest() {
-        Desktop desktop = new Desktop()
-                .setDataProductid(75)
-                .setTitle("Simple Computer")
-                .setValueAttributes(List.of("product_attribute_75_5_31_96"));
+        Desktop desktop = ProductData.simpleComputer();
         app.getProduct().clickOnAddToCart(desktop);
         app.getProduct().clickOnProductAttributes(desktop);
         app.getProduct().fillQty(desktop,2);
@@ -55,9 +53,7 @@ public class ItemTests extends TestBase {
     public void notLoggedInUserAddsItemToCartTest() {
         app.getUser().clickOnLogoutLink();
 
-        Desktop desktop = new Desktop()
-                .setDataProductid(31)
-                .setTitle("14.1-inch Laptop");
+        Desktop desktop = ProductData.computerWithoutDetails();
         app.getProduct().clickOnAddToCart(desktop);
         Assert.assertTrue(app.getProduct().isProductAddedToTheCartMessagePresent());
         app.getProduct().waitBeforeSuccessMessageDisappear();
@@ -69,15 +65,13 @@ public class ItemTests extends TestBase {
     public void itemAddedToTheCartIsInTheCartAfterLoginTest() {
         app.getUser().clickOnLogoutLink();
 
-        Desktop desktop = new Desktop()
-                .setDataProductid(31)
-                .setTitle("14.1-inch Laptop");
+        Desktop desktop = ProductData.computerWithoutDetails();
         app.getProduct().clickOnAddToCart(desktop);
 
         app.getUser().clickOnLoginLink();
         app.getUser().fillInLoginForm(new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("Password1!"));
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginInButton();
 
         app.getHomePage().clickOnShoppingCartLinkAtTheHeader();
@@ -87,9 +81,8 @@ public class ItemTests extends TestBase {
     @Test
     public void addToCartOutOfStockProductTest() {
         app.getProduct().clickOnApparelShoesInTopMenu();
-        Desktop desktop = new Desktop()
-                .setDataProductid(29);
-        app.getProduct().clickOnAddToCart(desktop);
+        Apparel apparel = ProductData.OutOfStockBag();
+        app.getProduct().clickOnAddToCart(apparel);
 
         Assert.assertTrue(app.getProduct().isOutOfStockMessagePresent());
         Assert.assertTrue(app.getHomePage().isCartEmpty());
@@ -97,13 +90,7 @@ public class ItemTests extends TestBase {
 
     @Test
     public void addToCartProductWithRequiredDetailsTest() {
-        Desktop desktop = new Desktop()
-                .setDataProductid(75)
-                .setTitle("Simple Computer")
-                .setProcessor("Processor: Slow")
-                .setRam("RAM: 2 GB")
-                .setHdd("HDD: 320 GB")
-                .setValueAttributes(List.of("product_attribute_75_5_31_96"));
+        Desktop desktop = ProductData.simpleComputer();
         app.getProduct().clickOnAddToCart(desktop);
         app.getProduct().clickOnProductAttributes(desktop);
         app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);
@@ -118,14 +105,7 @@ public class ItemTests extends TestBase {
 
     @Test
     public void addToCartProductWithOptionalDetailsTest() {
-        Desktop desktop = new Desktop()
-                .setDataProductid(74)
-                .setTitle("Build your own expensive computer")
-                .setProcessor("Processor: Fast [+100.00]")
-                .setRam("RAM: 8GB [+60.00]")
-                .setHdd("HDD: 400 GB [+100.00]")
-                .setSoftware("Software: Office Suite [+100.00]")
-                .setValueAttributes(List.of("product_attribute_74_5_26_82", "product_attribute_74_6_27_85", "product_attribute_74_3_28_87", "product_attribute_74_8_29_89"));
+        Desktop desktop = ProductData.expensiveComputer();
         app.getProduct().clickOnAddToCart(desktop);
         app.getProduct().clickOnProductAttributes(desktop);
         app.getProduct().clickOnAddToCartButtonOnProductDetailsPage(desktop);

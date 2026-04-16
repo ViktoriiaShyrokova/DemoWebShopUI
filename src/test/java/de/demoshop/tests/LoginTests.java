@@ -1,6 +1,7 @@
 package de.demoshop.tests;
 
 import de.demoshop.core.TestBase;
+import de.demoshop.data.UserData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,9 +16,8 @@ public class LoginTests extends TestBase {
     public void existedUserLoginPositiveTest(){
         app.getUser().clickOnLoginLink();
         de.demoshop.model.User user = new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("Password1!");
-
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
         app.getUser().fillInLoginForm(user);
         app.getUser().clickOnLoginInButton();
 
@@ -29,9 +29,7 @@ public class LoginTests extends TestBase {
     @Test
     public void userLoginWithNonExistedInDatabaseEmailNegativeTest(){
         app.getUser().clickOnLoginLink();
-        app.getUser().fillInLoginForm(new de.demoshop.model.User()
-                .setEmail("jack@fake.com")
-                .setPassword("Password1!"));
+        app.getUser().fillInLoginForm(UserData.userWithNotExistedInDbEmail());
         app.getUser().clickOnLoginInButton();
         Assert.assertTrue(app.getUser().isLogoutLinkNotPresent());
         Assert.assertTrue(app.getUser().isErrorNoCustomerFoundPresent());
@@ -40,9 +38,7 @@ public class LoginTests extends TestBase {
     @Test
     public void userLoginWithWrongPasswordNegativeTest(){
         app.getUser().clickOnLoginLink();
-        app.getUser().fillInLoginForm(new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("WrongPassword1!"));
+        app.getUser().fillInLoginForm(UserData.userWithWrongPassword());
         app.getUser().clickOnLoginInButton();
         Assert.assertTrue(app.getUser().isLogoutLinkNotPresent());
         Assert.assertTrue(app.getUser().isErrorCredentialsAreIncorrectPresent());

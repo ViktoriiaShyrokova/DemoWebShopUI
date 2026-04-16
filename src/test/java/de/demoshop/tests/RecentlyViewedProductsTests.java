@@ -2,6 +2,8 @@ package de.demoshop.tests;
 
 
 import de.demoshop.core.TestBase;
+import de.demoshop.data.ProductData;
+import de.demoshop.data.UserData;
 import de.demoshop.model.Desktop;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -15,9 +17,7 @@ public class RecentlyViewedProductsTests extends TestBase {
 
     @Test
     public void recentlyViewedProductIsShownInTheListTest(){
-        Desktop desktop = new Desktop()
-                .setDataProductid(31)
-                .setTitle("14.1-inch Laptop");
+        Desktop desktop = ProductData.computerWithoutDetails();
         app.getProduct().clickOnProduct(desktop);
         app.getHomePage().clickOnLogo();
         Assert.assertTrue(app.getProduct().isRecentlyViewedBlockPresent());
@@ -25,17 +25,15 @@ public class RecentlyViewedProductsTests extends TestBase {
     }
 
     @Test
-    public void previouslyViewedProductisShownInTheListTestForLoggedInUser(){
+    public void previouslyViewedProductIsShownInTheListTestForLoggedInUser(){
         app.getUser().clickOnLoginLink();
         de.demoshop.model.User user = new de.demoshop.model.User()
-                .setEmail("jack@sparrow.com")
-                .setPassword("Password1!");
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD);
         app.getUser().fillInLoginForm(user);
         app.getUser().clickOnLoginInButton();
 
-        Desktop desktop = new Desktop()
-                .setDataProductid(31)
-                .setTitle("14.1-inch Laptop");
+        Desktop desktop = ProductData.computerWithoutDetails();
         app.getProduct().clickOnProduct(desktop);
         app.getHomePage().clickOnLogo();
 
