@@ -3,6 +3,7 @@ package de.demoshop.tests;
 import de.demoshop.core.TestBase;
 import de.demoshop.data.UserData;
 import de.demoshop.model.User;
+import de.demoshop.utils.MyDataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -69,34 +70,12 @@ public class CreateAccountTests extends TestBase {
         Assert.assertTrue(app.getUser().isLogoutLinkNotPresent());
     }
 
-    @Test(dataProvider = "fillRegisterFormWithInvalidDataFromCsv")
+    @Test(dataProvider = "fillRegisterFormWithInvalidDataFromCsv", dataProviderClass = MyDataProviders.class)
     public void registerWithInvalidDataNegativeTest(User user) {
         app.getUser().clickOnRegisterLink();
         app.getUser().fillRegisterForm(user);
         app.getUser().clickOnRegisterButton();
         Assert.assertTrue(app.getUser().isRegistrationValidationPresent());
-    }
-
-
-    @DataProvider
-    public Iterator<Object[]> fillRegisterFormWithInvalidDataFromCsv() {
-        try (Stream<String> lines = Files.lines(Paths.get("src/test/resources/RegistrationInvalidData.csv"), StandardCharsets.UTF_8)) {
-
-            return lines
-                    .filter(l -> !l.isBlank())
-                    .skip(1)
-                    .map(l -> l.split(",",-1))
-                    .map(split -> new Object[]{new User()
-                            .setName(split[0])
-                            .setLastName(split[1])
-                            .setEmail(split[2])
-                            .setPassword(split[3])})
-                    .toList()
-                    .iterator();
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
 
