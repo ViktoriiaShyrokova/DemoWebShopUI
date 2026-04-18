@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.demoshop.tests.ItemTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-04-15T11:21:33.732Z" hostname="MacBook-Pro-Artur.local" time="53.049">
+  <properties/>
+  <testcase name="addToCartOutOfStockProductTest" classname="de.demoshop.tests.ItemTests" time="1.198"/>
+  <testcase name="addToCartProductWithOptionalDetailsTest" classname="de.demoshop.tests.ItemTests" time="6.765"/>
+  <testcase name="addToCartProductWithRequiredDetailsTest" classname="de.demoshop.tests.ItemTests" time="6.574"/>
+  <testcase name="itemAddedToTheCartIsInTheCartAfterLoginTest" classname="de.demoshop.tests.ItemTests" time="2.891"/>
+  <testcase name="loggedInUserAddsItemToCartTest" classname="de.demoshop.tests.ItemTests" time="5.315"/>
+  <testcase name="notLoggedInUserAddsItemToCartTest" classname="de.demoshop.tests.ItemTests" time="5.884"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[апр. 15, 2026 1:21:34 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+апр. 15, 2026 1:21:34 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+апр. 15, 2026 1:21:34 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+апр. 15, 2026 1:21:38 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+апр. 15, 2026 1:21:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+апр. 15, 2026 1:21:39 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+апр. 15, 2026 1:21:49 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+апр. 15, 2026 1:21:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+апр. 15, 2026 1:21:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+апр. 15, 2026 1:22:00 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+апр. 15, 2026 1:22:01 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+апр. 15, 2026 1:22:01 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+апр. 15, 2026 1:22:07 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+апр. 15, 2026 1:22:08 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+апр. 15, 2026 1:22:08 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+апр. 15, 2026 1:22:17 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+апр. 15, 2026 1:22:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+апр. 15, 2026 1:22:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
