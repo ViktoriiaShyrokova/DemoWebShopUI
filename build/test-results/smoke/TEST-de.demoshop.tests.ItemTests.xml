@@ -1,48 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.demoshop.tests.ItemTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-04-15T11:21:33.732Z" hostname="MacBook-Pro-Artur.local" time="53.049">
+<testsuite name="de.demoshop.tests.ItemTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-04-18T19:53:06.826Z" hostname="MacBook-Pro-Artur.local" time="52.83">
   <properties/>
-  <testcase name="addToCartOutOfStockProductTest" classname="de.demoshop.tests.ItemTests" time="1.198"/>
-  <testcase name="addToCartProductWithOptionalDetailsTest" classname="de.demoshop.tests.ItemTests" time="6.765"/>
-  <testcase name="addToCartProductWithRequiredDetailsTest" classname="de.demoshop.tests.ItemTests" time="6.574"/>
-  <testcase name="itemAddedToTheCartIsInTheCartAfterLoginTest" classname="de.demoshop.tests.ItemTests" time="2.891"/>
-  <testcase name="loggedInUserAddsItemToCartTest" classname="de.demoshop.tests.ItemTests" time="5.315"/>
-  <testcase name="notLoggedInUserAddsItemToCartTest" classname="de.demoshop.tests.ItemTests" time="5.884"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[апр. 15, 2026 1:21:34 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:21:34 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:21:34 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-апр. 15, 2026 1:21:38 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:21:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:21:39 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-апр. 15, 2026 1:21:49 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:21:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:21:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-апр. 15, 2026 1:22:00 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:22:01 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:22:01 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-апр. 15, 2026 1:22:07 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:22:08 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:22:08 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-апр. 15, 2026 1:22:17 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:22:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:22:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
+  <testcase name="addToCartOutOfStockProductTest" classname="de.demoshop.tests.ItemTests" time="1.187"/>
+  <testcase name="addToCartProductWithOptionalDetailsTest" classname="de.demoshop.tests.ItemTests" time="6.82"/>
+  <testcase name="addToCartProductWithRequiredDetailsTest" classname="de.demoshop.tests.ItemTests" time="6.358"/>
+  <testcase name="itemAddedToTheCartIsInTheCartAfterLoginTest" classname="de.demoshop.tests.ItemTests" time="2.847"/>
+  <testcase name="loggedInUserAddsItemToCartTest" classname="de.demoshop.tests.ItemTests" time="5.408"/>
+  <testcase name="loggedInUserAddsTwoEqualItemsToCartTest" classname="de.demoshop.tests.ItemTests" time="6.155"/>
+  <testcase name="notLoggedInUserAddsItemToCartTest" classname="de.demoshop.tests.ItemTests" time="6.013"/>
+  <system-out><![CDATA[21:53:06.827 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______addToCartOutOfStockProductTest
+21:53:09.453 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:09.453 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+21:53:09.454 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______addToCartProductWithOptionalDetailsTest
+21:53:19.737 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:19.738 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+21:53:19.739 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______addToCartProductWithRequiredDetailsTest
+21:53:29.184 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:29.185 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+21:53:29.186 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______itemAddedToTheCartIsInTheCartAfterLoginTest
+21:53:35.089 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:35.090 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+21:53:35.091 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______loggedInUserAddsItemToCartTest
+21:53:43.085 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:43.086 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+21:53:43.087 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______loggedInUserAddsTwoEqualItemsToCartTest
+21:53:52.004 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:52.004 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+21:53:52.005 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______notLoggedInUserAddsItemToCartTest
+21:54:00.415 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:54:00.416 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

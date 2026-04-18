@@ -84,7 +84,9 @@ public class ProductHelper extends BaseHelper {
     }
 
     public boolean isOutOfStockMessagePresent() {
-        return isElementPresent(By.xpath("//p[.='Out of stock']"));
+        boolean isPresent = isElementPresent(By.xpath("//p[.='Out of stock']"));
+        click(By.className("close"));
+        return isPresent;
     }
 
     public void clickOnApparelShoesInTopMenu() {

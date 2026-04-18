@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.demoshop.tests.LoginTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-15T11:21:29.867Z" hostname="MacBook-Pro-Artur.local" time="3.488">
+<testsuite name="de.demoshop.tests.LoginTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-18T19:53:05.718Z" hostname="MacBook-Pro-Artur.local" time="1.108">
   <properties/>
-  <testcase name="existedUserLoginPositiveTest" classname="de.demoshop.tests.LoginTests" time="1.245"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[апр. 15, 2026 1:21:30 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
-WARNING: The chromedriver version (146.0.7680.80) detected in PATH at /Users/arturvikki/Tools/chromedriver might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.56 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
-апр. 15, 2026 1:21:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 147
-апр. 15, 2026 1:21:30 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 147.0.7727.56. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.23.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
+  <testcase name="existedUserLoginPositiveTest" classname="de.demoshop.tests.LoginTests" time="1.099"/>
+  <system-out><![CDATA[21:53:05.720 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______existedUserLoginPositiveTest
+21:53:06.826 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+21:53:06.827 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

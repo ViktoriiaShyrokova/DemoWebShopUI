@@ -9,7 +9,6 @@
                     <exclude name=".*Negative.*"></exclude>
                 </methods>
             </class>
-            <class name="de.demoshop.tests.ItemTests"/>
         </classes>
     </test>
 </suite>
