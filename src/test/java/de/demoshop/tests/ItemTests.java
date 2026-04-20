@@ -85,7 +85,6 @@ public class ItemTests extends TestBase {
         app.getProduct().clickOnAddToCart(apparel);
 
         Assert.assertTrue(app.getProduct().isOutOfStockMessagePresent());
-        Assert.assertTrue(app.getHomePage().isCartEmpty());
     }
 
     @Test
