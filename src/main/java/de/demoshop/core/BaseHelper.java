@@ -80,4 +80,8 @@ public class BaseHelper {
         }
         return screenshot.getPath();
     }
+    public WebElement find(By locator) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return driver.findElement(locator);
+    }
 }

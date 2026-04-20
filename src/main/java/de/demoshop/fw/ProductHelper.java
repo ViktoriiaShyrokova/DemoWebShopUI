@@ -106,12 +106,12 @@ public class ProductHelper extends BaseHelper {
     }
 
     public boolean isSubTotalCalculatedCorrect() {
-        WebElement priceElement = driver.findElement(By.className("product-unit-price"));
-        Double price = Double.parseDouble(priceElement.getText().trim());
-        WebElement qtyElement = driver.findElement(By.className("qty-input"));
-        Double qty = Double.parseDouble(qtyElement.getAttribute("value"));
-        WebElement subTotalElement = driver.findElement(By.className("product-subtotal"));
-        Double subTotal = Double.parseDouble(subTotalElement.getAttribute("textContent").trim());
-        return subTotal == price * qty;
+        WebElement priceElement = find(By.className("product-unit-price"));
+        double price = Double.parseDouble(priceElement.getText().trim());
+        WebElement qtyElement = find(By.className("qty-input"));
+        double qty = Double.parseDouble(qtyElement.getAttribute("value"));
+        WebElement subTotalElement = find(By.className("product-subtotal"));
+        double subTotal = Double.parseDouble(subTotalElement.getText().trim());
+        return Math.abs(subTotal - (price * qty)) < 0.001;
     }
 }
