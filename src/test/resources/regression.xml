@@ -5,6 +5,10 @@
         <classes>
             <class name="de.demoshop.tests.HomePageTests"/>
             <class name="de.demoshop.tests.LoginTests"/>
+            <class name="de.demoshop.tests.CreateAccountTests"/>
+            <class name="de.demoshop.tests.LogoutTests"/>
+            <class name="de.demoshop.tests.RecentlyViewedProductsTests"/>
+            <class name="de.demoshop.tests.RemoveProductFromCartTests"/>
             <class name="de.demoshop.tests.ItemTests"/>
             <class name="de.demoshop.tests.ChangeProductQtyInTheCartTest"/>
         </classes>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.demoshop.tests.CreateAccountTests" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-04-20T20:06:01.617Z" hostname="MacBook-Pro-Artur.local" time="25.093">
+  <properties/>
+  <testcase name="existedUserRegisterNegativeTest" classname="de.demoshop.tests.CreateAccountTests" time="2.359"/>
+  <testcase name="newUserRegisterPositiveTest" classname="de.demoshop.tests.CreateAccountTests" time="2.197"/>
+  <testcase name="registerWithInvalidDataNegativeTest[0](de.demoshop.model.User@28bdbe88)" classname="de.demoshop.tests.CreateAccountTests" time="2.207"/>
+  <testcase name="registerWithInvalidDataNegativeTest[1](de.demoshop.model.User@5d7399f9)" classname="de.demoshop.tests.CreateAccountTests" time="1.108"/>
+  <testcase name="registerWithInvalidDataNegativeTest[2](de.demoshop.model.User@49fb0bbd)" classname="de.demoshop.tests.CreateAccountTests" time="1.008"/>
+  <testcase name="registerWithInvalidDataNegativeTest[3](de.demoshop.model.User@577536e0)" classname="de.demoshop.tests.CreateAccountTests" time="1.112"/>
+  <testcase name="registerWithInvalidDataNegativeTest[4](de.demoshop.model.User@71a4f441)" classname="de.demoshop.tests.CreateAccountTests" time="1.149"/>
+  <testcase name="registerWithInvalidDataNegativeTest[5](de.demoshop.model.User@448462f0)" classname="de.demoshop.tests.CreateAccountTests" time="1.034"/>
+  <testcase name="registerWithInvalidDataNegativeTest[6](de.demoshop.model.User@78b0ec3a)" classname="de.demoshop.tests.CreateAccountTests" time="1.108"/>
+  <testcase name="registerWithInvalidDataNegativeTest[7](de.demoshop.model.User@25218a4d)" classname="de.demoshop.tests.CreateAccountTests" time="1.127"/>
+  <testcase name="registerWithInvalidDataNegativeTest[8](de.demoshop.model.User@4fe2dd02)" classname="de.demoshop.tests.CreateAccountTests" time="1.074"/>
+  <testcase name="registerWithInvalidDataNegativeTest[9](de.demoshop.model.User@6c421123)" classname="de.demoshop.tests.CreateAccountTests" time="1.093"/>
+  <testcase name="registerWithInvalidDataNegativeTest[10](de.demoshop.model.User@6697f3d)" classname="de.demoshop.tests.CreateAccountTests" time="1.089"/>
+  <testcase name="registerWithInvalidDataNegativeTest[11](de.demoshop.model.User@7cbf4f8c)" classname="de.demoshop.tests.CreateAccountTests" time="1.088"/>
+  <testcase name="registerWithInvalidDataNegativeTest[12](de.demoshop.model.User@878feb2)" classname="de.demoshop.tests.CreateAccountTests" time="1.048"/>
+  <testcase name="registerWithInvalidDataNegativeTest[13](de.demoshop.model.User@30c03473)" classname="de.demoshop.tests.CreateAccountTests" time="1.043"/>
+  <testcase name="registerWithInvalidDataNegativeTest[14](de.demoshop.model.User@27055a2a)" classname="de.demoshop.tests.CreateAccountTests" time="1.145"/>
+  <testcase name="userCanClickOnRegisterButtonOnTheSignInPage" classname="de.demoshop.tests.CreateAccountTests" time="2.846"/>
+  <system-out><![CDATA[22:06:01.620 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______existedUserRegisterNegativeTest
+22:06:03.994 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:03.995 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:03.996 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______newUserRegisterPositiveTest
+22:06:06.207 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:06.207 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:06.214 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:08.471 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:08.473 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:08.476 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:09.595 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:09.595 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:09.596 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:10.610 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:10.611 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:10.611 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:11.728 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:11.729 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:11.730 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:12.888 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:12.888 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:12.894 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:13.936 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:13.936 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:13.937 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:15.056 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:15.057 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:15.058 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:16.200 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:16.200 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:16.201 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:17.279 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:17.280 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:17.282 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:18.386 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:18.386 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:18.387 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:19.484 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:19.484 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:19.484 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:20.576 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:20.576 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:20.577 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:21.644 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:21.646 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:21.646 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:22.694 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:22.694 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:22.695 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______registerWithInvalidDataNegativeTest
+22:06:23.846 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:23.847 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:23.849 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______userCanClickOnRegisterButtonOnTheSignInPage
+22:06:26.712 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:26.712 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

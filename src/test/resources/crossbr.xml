@@ -1,16 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression" verbose="1">
-    <test name="Test2">
+<suite name="Crossbr" verbose="1">
+    <test name="Test3">
         <classes>
             <class name="de.demoshop.tests.HomePageTests"/>
             <class name="de.demoshop.tests.LoginTests"/>
             <class name="de.demoshop.tests.CreateAccountTests"/>
             <class name="de.demoshop.tests.LogoutTests"/>
             <class name="de.demoshop.tests.RecentlyViewedProductsTests"/>
-            <class name="de.demoshop.tests.RemoveProductFromCartTests"/>
-            <class name="de.demoshop.tests.ItemTests"/>
-            <class name="de.demoshop.tests.ChangeProductQtyInTheCartTest"/>
         </classes>
     </test>
 </suite>

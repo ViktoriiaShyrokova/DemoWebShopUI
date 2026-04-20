@@ -21,7 +21,6 @@ public class ProductHelper extends BaseHelper {
                         product.getDataProductid())
         ));
     }
-
     public boolean isProductAddedToTheCartMessagePresent() {
         return isElementPresent(By.xpath("//p[contains(.,'The product has been added to your')]"));
     }

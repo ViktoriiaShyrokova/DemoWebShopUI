@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.demoshop.tests.HomePageTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-20T20:05:56.090Z" hostname="MacBook-Pro-Artur.local" time="0.018">
+  <properties/>
+  <testcase name="isHomePageShownTest" classname="de.demoshop.tests.HomePageTests" time="0.009"/>
+  <system-out><![CDATA[22:05:56.097 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______isHomePageShownTest
+22:05:56.110 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:05:56.110 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

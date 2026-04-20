@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.demoshop.tests.LoginTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-20T20:05:56.111Z" hostname="MacBook-Pro-Artur.local" time="5.504">
+  <properties/>
+  <testcase name="existedUserLoginPositiveTest" classname="de.demoshop.tests.LoginTests" time="2.031"/>
+  <testcase name="userLoginWithNonExistedInDatabaseEmailNegativeTest" classname="de.demoshop.tests.LoginTests" time="2.033"/>
+  <testcase name="userLoginWithWrongPasswordNegativeTest" classname="de.demoshop.tests.LoginTests" time="1.351"/>
+  <system-out><![CDATA[22:05:56.112 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______existedUserLoginPositiveTest
+22:05:58.150 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:05:58.150 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:05:58.152 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______userLoginWithNonExistedInDatabaseEmailNegativeTest
+22:06:00.257 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:00.257 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:00.259 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______userLoginWithWrongPasswordNegativeTest
+22:06:01.617 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:01.617 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

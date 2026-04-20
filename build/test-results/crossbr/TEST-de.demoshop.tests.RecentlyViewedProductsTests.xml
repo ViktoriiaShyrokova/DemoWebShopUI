@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.demoshop.tests.RecentlyViewedProductsTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-04-20T20:06:30.390Z" hostname="MacBook-Pro-Artur.local" time="6.476">
+  <properties/>
+  <testcase name="previouslyViewedProductIsShownInTheListTestForLoggedInUser" classname="de.demoshop.tests.RecentlyViewedProductsTests" time="5.556"/>
+  <testcase name="recentlyViewedProductIsShownInTheListTest" classname="de.demoshop.tests.RecentlyViewedProductsTests" time="0.861"/>
+  <system-out><![CDATA[22:06:30.391 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______previouslyViewedProductIsShownInTheListTestForLoggedInUser
+22:06:35.953 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:35.953 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+22:06:35.954 [Test worker] INFO  de.demoshop.core.TestBase -- Start test_______recentlyViewedProductIsShownInTheListTest
+22:06:36.867 [Test worker] INFO  de.demoshop.core.TestBase -- PASSED
+22:06:36.868 [Test worker] INFO  de.demoshop.core.TestBase -- ==================================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
